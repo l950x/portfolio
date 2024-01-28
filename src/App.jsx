@@ -6,12 +6,26 @@ import Home from "./pages/Home";
 // import { useEffect, useState } from "react";
 import AnimatedCursor from "react-animated-cursor";
 import Particle from "./components/Particle";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
   return (
     <>
       <Particle />
       <Home />
+      {!isMobile && (
       <AnimatedCursor
         innerSize={10}
         outerSize={8}
@@ -33,6 +47,7 @@ function App() {
           ".link",
         ]}
       />
+      )}
     </>
   );
 }
