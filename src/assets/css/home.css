@@ -108,6 +108,26 @@ hr {
   }
 }
 /* 657 */
-@media screen and (max-height: 670px) {
+@media screen and (max-width: 560px) {
+  .partOne h1 {
+    font-size: 100px;
+  }
+  .partOne h2 {
+    font-size: 35px;
+  }
+  .partOne h3 {
+    font-size: 30px;
+  }
+}
 
+@media screen and (max-width: 500px) {
+  .partOne h1 {
+    font-size: 100px;
+  }
+  .partOne h2 {
+    font-size: 22px;
+  }
+  .partOne h3 {
+    font-size: 20px;
+  }
 }
